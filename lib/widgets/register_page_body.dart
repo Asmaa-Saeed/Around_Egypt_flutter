@@ -1,6 +1,8 @@
 import 'package:around_egypt/widgets/custom_button.dart';
-import 'package:around_egypt/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+
+import 'custom_column.dart';
 
 class RegisterPageBody extends StatelessWidget {
   const RegisterPageBody({
@@ -10,104 +12,101 @@ class RegisterPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 22),
       child: ListView(
         children: [
+          Lottie.asset(
+            'images/lottie2.json',
+            height: 220,
+          ),
           const SizedBox(
-            height: 60,
+            height: 8,
           ),
-          Image.asset(
-            'assets/images/register.png',
-            height: 299,
+          const Center(
+            child: Text(
+              'Create an account',
+              style: TextStyle(
+                fontSize: 19,
+                color: Color.fromARGB(255, 46, 71, 144),
+                fontWeight: FontWeight.bold,
+                fontFamily: 'pacifico',
+              ),
+            ),
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Around Egypt',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'pacifico',
+          const CustomColumn(
+            text: 'Name',
+            hintText: 'Enter Your Name',
+            prefixIcon: Icons.person_2_rounded,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const CustomColumn(
+            text: 'Phone',
+            hintText: 'Enter Your Phone',
+            prefixIcon: Icons.mobile_friendly_outlined,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const CustomColumn(
+            text: 'Email',
+            hintText: 'Enter Your Email',
+            prefixIcon: Icons.email,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const CustomColumn(
+            text: 'Password',
+            hintText: 'Enter Your Password',
+            prefixIcon: Icons.lock,
+            suffixIcon: Icons.visibility_off,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const CustomColumn(
+            text: 'Confirm Password',
+            hintText: 'Enter Your Password',
+            prefixIcon: Icons.lock,
+            suffixIcon: Icons.visibility_off,
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
+            child: CustomButton(text: 'LOGIN'),
+          ),
+          const SizedBox(
+            height: 8,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'already have an account? ',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color.fromARGB(255, 46, 71, 144),
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 75,
-          ),
-          const Row(
-            children: [
-              Text(
-                'REGISTER',
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(' LOGIN',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      )),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 18,
-          ),
-          CustomFormTextField(
-            hintText: '   Name',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomFormTextField(
-            hintText: '   Email',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomFormTextField(
-            hintText: '  Phone Number',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomFormTextField(
-            hintText: '   Password',
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomFormTextField(
-            hintText: '   Confirm Password',
-          ),
-          const SizedBox(
-            height: 18,
-          ),
-          CustomButton(text: 'REGISTER'),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'already have an account? ',
-                style: TextStyle(
-                  fontSize: 14,
-                  color:Color.fromARGB(255, 46, 71, 144),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(' LOGIN',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 113, 180, 239),
-                      fontWeight: FontWeight.bold,
-                    )),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

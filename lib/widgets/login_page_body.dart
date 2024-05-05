@@ -1,5 +1,5 @@
 import 'package:around_egypt/widgets/custom_button.dart';
-import 'package:around_egypt/widgets/custom_text_field.dart';
+import 'package:around_egypt/widgets/custom_column.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -15,10 +15,8 @@ class LoginPageBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(
-            flex: 1,
-          ),
           Lottie.asset(
             'images/lottie.json',
             height: 220,
@@ -35,35 +33,25 @@ class LoginPageBody extends StatelessWidget {
               fontFamily: 'pacifico',
             ),
           ),
-          const Spacer(
-            flex: 2,
-          ),
-          const Row(
-              // children: [
-              //   Text(
-              //     'LOGIN',
-              //     style: TextStyle(
-              //       fontSize: 24,
-              //       color: Colors.black,
-              //       fontWeight: FontWeight.bold,
-              //     ),
-              //   ),
-              // ],
-              ),
           const SizedBox(
             height: 18,
           ),
-          const CustomFormTextField(
-            hintText: ' Email',
+          const CustomColumn(
+            text: 'Email',
+            hintText: 'Enter Your Email',
+            prefixIcon: Icons.email,
           ),
           const SizedBox(
             height: 10,
           ),
-          const CustomFormTextField(
-            hintText: '  Password',
+          const CustomColumn(
+            text: 'Password',
+            hintText: 'Enter Your Password',
+            prefixIcon: Icons.lock,
+            suffixIcon: Icons.visibility_off,
           ),
           const SizedBox(
-            height: 18,
+            height: 10,
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -79,7 +67,7 @@ class LoginPageBody extends StatelessWidget {
                 'don\'t have an account ?',
                 style: TextStyle(
                   fontSize: 14,
-                  color: Color.fromARGB(255, 46, 71, 144),
+                  color: Color(0xFF2E4790),
                 ),
               ),
               const SizedBox(
@@ -91,15 +79,12 @@ class LoginPageBody extends StatelessWidget {
                 },
                 child: const Text('REGISTER',
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 131, 174, 217),
+                      fontSize: 14,
+                      color: Colors.blue,
                       fontWeight: FontWeight.bold,
                     )),
               ),
             ],
-          ),
-          const Spacer(
-            flex: 4,
           ),
         ],
       ),
