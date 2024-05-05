@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pages/chat_page.dart';
+import '../pages/home_page.dart';
 import '../pages/musuems_page.dart';
 import '../pages/resturant_page.dart';
 import '../pages/travel_page.dart';
@@ -36,7 +36,7 @@ void navigateToHomePage(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => const HomeView(HomeView),
+      builder: (context) => const HomePage(),
     ),
   );
 }

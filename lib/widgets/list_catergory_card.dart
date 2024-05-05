@@ -24,19 +24,16 @@ class ListCategorycards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => selectCategory(context),
-      splashColor: Colors.deepOrange,
-      borderRadius: BorderRadius.circular(15),
-      child: SizedBox(
-        child: ListView.builder(
-            itemCount: categories.length,
-            itemBuilder: ((context, index) {
-              return CategoryCard(
-                category: categories[index],
-              );
-            })),
-      ),
+    return SizedBox(
+      child: ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: categories.length,
+          itemBuilder: ((context, index) {
+            return CategoryCard(
+              category: categories[index],
+            );
+          })),
     );
   }
 }

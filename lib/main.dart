@@ -1,4 +1,4 @@
-import 'package:around_egypt/pages/chat_page.dart';
+import 'package:around_egypt/pages/home_page.dart';
 import 'package:around_egypt/pages/login_page.dart';
 import 'package:around_egypt/pages/register_page.dart';
 import 'package:around_egypt/pages/splash_page.dart';
@@ -22,7 +22,7 @@ class AroundEgypt extends StatelessWidget {
         SplashPage.id: (context) => const SplashPage(),
         LoginPage.id: (context) => const LoginPage(),
         RegisterPage.id: (context) => const RegisterPage(),
-        HomeView.id: (context) => const HomeView(HomeView),
+        HomePage.id: (context) => const HomePage(),
         BookedPage.id: (context) => const BookedPage(),
       },
       initialRoute: SplashPage.id,

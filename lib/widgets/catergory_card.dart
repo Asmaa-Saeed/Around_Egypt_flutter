@@ -21,13 +21,19 @@ class CategoryCard extends StatelessWidget {
                 image: DecorationImage(image: AssetImage(category.images)),
                 //  borderRadius: BorderRadius.circular(10)),
               )),
-          const SizedBox(height: 15,),
+          const SizedBox(
+            height: 15,
+          ),
           MaterialButton(
             onPressed: () {
-              () => selectCategory(context);
+             selectCategory(context);
             },
+            elevation: 10,
             color: const Color.fromARGB(255, 46, 71, 144),
-            child: Text(category.categorName),
+            child: Text(
+              category.categorName,
+              style: const TextStyle(color: Colors.white),
+            ),
           )
         ],
       ),

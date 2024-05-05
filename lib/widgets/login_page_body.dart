@@ -1,8 +1,9 @@
-import 'package:around_egypt/pages/chat_page.dart';
 import 'package:around_egypt/widgets/custom_button.dart';
 import 'package:around_egypt/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+
+import '../pages/register_page.dart';
 
 class LoginPageBody extends StatelessWidget {
   const LoginPageBody({
@@ -86,7 +87,7 @@ class LoginPageBody extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, HomeView.id);
+                  Navigator.pushNamed(context, RegisterPage.id);
                 },
                 child: const Text('REGISTER',
                     style: TextStyle(

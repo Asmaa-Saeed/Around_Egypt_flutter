@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../pages/chat_page.dart';
+import '../pages/home_page.dart';
 import '../pages/login_page.dart';
 
-class appDrwaer extends StatelessWidget {
-  const appDrwaer({super.key});
+class AppDrawer extends StatelessWidget {
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class appDrwaer extends StatelessWidget {
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
-                color:  Color.fromARGB(255, 255, 255, 255),
+                color: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
           ),
@@ -34,13 +34,13 @@ class appDrwaer extends StatelessWidget {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const HomeView(HomeView)));
+                    builder: (context) => const HomePage()));
           }),
           //buildlistTiel('Picnics', Icons.card_travel, () {}),
           buildlistTiel('Log out', Icons.logout, () async {
             //  await FirebaseAuth.instance.signOut();
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => LoginPage()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const LoginPage()));
           }),
         ],
       ),
@@ -52,7 +52,7 @@ class appDrwaer extends StatelessWidget {
       leading: Icon(
         icon,
         size: 30,
-        color: Color.fromARGB(255, 65, 90, 165),
+        color: const Color.fromARGB(255, 65, 90, 165),
       ),
       title: Text(
         titel,

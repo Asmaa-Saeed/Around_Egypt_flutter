@@ -1,4 +1,4 @@
-import 'package:around_egypt/pages/chat_page.dart';
+import 'package:around_egypt/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/box1_page_body.dart';
@@ -31,7 +31,7 @@ class Box1Page extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const HomeView(HomeView),
+        builder: (context) => const HomePage(),
       ),
     );
   }
