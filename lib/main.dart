@@ -1,8 +1,12 @@
+import 'package:around_egypt/cubits/login_cubit/login_cubit.dart';
+import 'package:around_egypt/cubits/register_cubit/register_cubit.dart';
 import 'package:around_egypt/pages/home_page.dart';
 import 'package:around_egypt/pages/login_page.dart';
 import 'package:around_egypt/pages/register_page.dart';
+import 'package:around_egypt/pages/setting_page.dart';
 import 'package:around_egypt/pages/splash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pages/booked_page.dart';
 
@@ -20,10 +24,17 @@ class AroundEgypt extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         SplashPage.id: (context) => const SplashPage(),
-        LoginPage.id: (context) => const LoginPage(),
-        RegisterPage.id: (context) => const RegisterPage(),
+        LoginPage.id: (context) => BlocProvider(
+              create: (context) => LoginCubit(),
+              child: const LoginPage(),
+            ),
+        RegisterPage.id: (context) => BlocProvider(
+              create: (context) => RegisterCubit(),
+              child: const RegisterPage(),
+            ),
         HomePage.id: (context) => const HomePage(),
         BookedPage.id: (context) => const BookedPage(),
+        SettingPage.id: (context) => const SettingPage(),
       },
       initialRoute: SplashPage.id,
     );

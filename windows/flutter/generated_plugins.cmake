@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  audioplayers_windows
+  file_selector_windows
   modal_progress_hud_nsn
 )
 

@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:around_egypt/pages/login_page.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -13,6 +15,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    final player = AudioPlayer();
+    player.play(AssetSource('sounds/sound.mp3'));
     Timer(const Duration(seconds: 3), () async {
       Navigator.pushReplacementNamed(context, LoginPage.id);
     });
@@ -21,17 +25,21 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xfff0dfcb),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('images/logo.png',height: 200,),
+            Image.asset(
+              'images/logo.png',
+              height: 200,
+            ),
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
                 'Around Egypt',
                 style: TextStyle(
-                  color:Color(0xFF2E4790),
+                  color: Color(0xFF2E4790),
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
                 ),

@@ -2,8 +2,8 @@ import 'package:around_egypt/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CustomTextFromField extends StatefulWidget {
-  CustomTextFromField(
+class CustomTextFormField extends StatefulWidget {
+  CustomTextFormField(
       {super.key,
       this.suffixIcon,
       this.prefixIcon,
@@ -28,10 +28,10 @@ class CustomTextFromField extends StatefulWidget {
   final Color iconColor = kPrimaryColor;
   bool? enabled;
   @override
-  State<CustomTextFromField> createState() => _CustomTextFromFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _CustomTextFromFieldState extends State<CustomTextFromField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(

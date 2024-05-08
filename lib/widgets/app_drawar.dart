@@ -1,3 +1,4 @@
+import 'package:around_egypt/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/home_page.dart';
@@ -29,16 +30,14 @@ class AppDrawer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-
           buildlistTiel('Home', Icons.home, () {
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const HomePage()));
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const HomePage()));
           }),
-          //buildlistTiel('Picnics', Icons.card_travel, () {}),
+          buildlistTiel('Settings', Icons.settings, () {
+            Navigator.pushNamed(context, SettingPage.id);
+          }),
           buildlistTiel('Log out', Icons.logout, () async {
-            //  await FirebaseAuth.instance.signOut();
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const LoginPage()));
           }),

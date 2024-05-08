@@ -10,6 +10,7 @@ class CustomColumn extends StatelessWidget {
   final IconData? suffixIcon;
   final IconData prefixIcon;
   final void Function(String)? onChanged;
+  final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   const CustomColumn(
       {super.key,
@@ -17,7 +18,9 @@ class CustomColumn extends StatelessWidget {
       required this.hintText,
       required this.prefixIcon,
       this.onChanged,
-      this.validator,  this.suffixIcon});
+      this.validator,
+      this.suffixIcon,
+      this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class CustomColumn extends StatelessWidget {
             Text(
               text,
               style: const TextStyle(
-                color:kPrimaryColor,
+                color: kPrimaryColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.0,
@@ -36,12 +39,13 @@ class CustomColumn extends StatelessWidget {
             ),
           ],
         ),
-        CustomTextFromField(
+        CustomTextFormField(
           prefixIcon: prefixIcon,
           hintText: hintText,
           onChanged: onChanged,
           validator: validator,
           suffixIcon: suffixIcon,
+          keyboardType: keyboardType,
         ),
       ],
     );

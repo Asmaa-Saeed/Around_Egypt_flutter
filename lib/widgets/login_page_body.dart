@@ -1,93 +1,147 @@
+import 'dart:developer';
+
+import 'package:around_egypt/cubits/login_cubit/login_cubit.dart';
+import 'package:around_egypt/pages/home_page.dart';
 import 'package:around_egypt/widgets/custom_button.dart';
 import 'package:around_egypt/widgets/custom_column.dart';
+import 'package:around_egypt/widgets/show_snack_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 
+import '../cubits/login_cubit/login_state.dart';
 import '../pages/register_page.dart';
 
-class LoginPageBody extends StatelessWidget {
+class LoginPageBody extends StatefulWidget {
   const LoginPageBody({
     super.key,
   });
 
   @override
+  State<LoginPageBody> createState() => _LoginPageBodyState();
+}
+
+class _LoginPageBodyState extends State<LoginPageBody> {
+  String? emailAddress;
+
+  String? password;
+
+  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.asset(
-            'images/lottie.json',
-            height: 220,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Text(
-            'Login To Continue',
-            style: TextStyle(
-              fontSize: 19,
-              color: Color.fromARGB(255, 46, 71, 144),
-              fontWeight: FontWeight.bold,
-              fontFamily: 'pacifico',
-            ),
-          ),
-          const SizedBox(
-            height: 18,
-          ),
-          const CustomColumn(
-            text: 'Email',
-            hintText: 'Enter Your Email',
-            prefixIcon: Icons.email,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const CustomColumn(
-            text: 'Password',
-            hintText: 'Enter Your Password',
-            prefixIcon: Icons.lock,
-            suffixIcon: Icons.visibility_off,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.0),
-            child: CustomButton(text: 'LOGIN'),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginFailureState) {
+          showSnackBar(context, state.errorMessage, true);
+        } else if (state is LoginSuccessState) {
+          showSnackBar(context, 'Login done successfully !', false);
+          Navigator.pushReplacementNamed(
+            context,
+            HomePage.id,
+          );
+        }
+      },
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Lottie.asset(
+                'images/lottie.json',
+                height: 220,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               const Text(
-                'don\'t have an account ?',
+                'Login To Continue',
                 style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF2E4790),
+                  fontSize: 19,
+                  color: Color.fromARGB(255, 46, 71, 144),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'pacifico',
                 ),
               ),
               const SizedBox(
-                width: 5,
+                height: 18,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, RegisterPage.id);
+              CustomColumn(
+                text: 'Email',
+                hintText: 'Enter Your Email',
+                prefixIcon: Icons.email,
+                onChanged: (value) {
+                  emailAddress = value;
                 },
-                child: const Text('REGISTER',
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomColumn(
+                text: 'Password',
+                hintText: 'Enter Your Password',
+                prefixIcon: Icons.lock,
+                suffixIcon: Icons.visibility_off,
+                onChanged: (value) {
+                  password = value;
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: BlocBuilder<LoginCubit, LoginState>(
+                  builder: (context, state) {
+                    return CustomButton(
+                      isLoading: state is LoginLoadingState ? true : false,
+                      text: 'LOGIN',
+                      onTap: () {
+                        log(emailAddress!);
+                        BlocProvider.of<LoginCubit>(context)
+                            .login(email: emailAddress!, password: password!);
+                      },
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'don\'t have an account ?',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    )),
+                      color: Color(0xFF2E4790),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, RegisterPage.id);
+                    },
+                    child: const Text('REGISTER',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.blue,
+                          fontWeight: FontWeight.bold,
+                        )),
+                  ),
+                ],
               ),
+              MaterialButton(
+                  onPressed: () async {
+                    // try booking service
+                  },
+                  child: const Text('Try'))
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
