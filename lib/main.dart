@@ -35,6 +35,7 @@ class AroundEgypt extends StatelessWidget {
         HomePage.id: (context) => const HomePage(),
         BookedPage.id: (context) => const BookedPage(),
         SettingPage.id: (context) => const SettingPage(),
+        BookedPage.id: (context) => const BookedPage(),
       },
       initialRoute: SplashPage.id,
     );

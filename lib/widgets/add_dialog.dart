@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
+import '../pages/booked_page.dart';
+
 class AddDialog extends StatefulWidget {
   const AddDialog({
     super.key,
@@ -106,6 +108,7 @@ class _AddDialogState extends State<AddDialog> {
             await BookingService().bookTicket(numOfTickets!, date!);
             Navigator.pop(context);
             showSnackBar(context, 'Ticket Added successfully', false);
+            Navigator.pushNamed(context, BookedPage.id);
           },
         )),
       ],

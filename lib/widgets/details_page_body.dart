@@ -1,3 +1,4 @@
+import 'package:around_egypt/services/booking_service.dart';
 import 'package:around_egypt/widgets/add_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class DetailsPageBody extends StatelessWidget {
                   const SizedBox(height: 20.0), // Consistent spacing
                   ElevatedButton(
                     onPressed: () {
+                      BookingService().fetchBookings();
                       showDialog(
                         context: context,
                         builder: ((context) => const AddDialog()),
