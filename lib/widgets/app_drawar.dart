@@ -38,8 +38,8 @@ class AppDrawer extends StatelessWidget {
             Navigator.pushNamed(context, SettingPage.id);
           }),
           buildlistTiel('Log out', Icons.logout, () async {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const LoginPage()));
+            Navigator.pushReplacementNamed(context, LoginPage.id);
+           // Navigator.pop(context);
           }),
         ],
       ),
