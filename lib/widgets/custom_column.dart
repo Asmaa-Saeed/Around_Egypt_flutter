@@ -35,6 +35,7 @@ class CustomColumn extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.0,
+                fontFamily: 'Jet',
               ),
             ),
           ],

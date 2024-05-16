@@ -5,16 +5,16 @@ import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginIntialState());
-  late String emailAddress;
-  late String myPassword;
-  login({required String email, required String password}) async {
+  login({required Map<String, dynamic>? userData}) async {
     emit(LoginLoadingState());
-    var result = await AuthRepoImp().login(email: email, password: password);
-    emailAddress = email;
-    myPassword = password;
+    var result = await AuthRepoImp().login(userData: userData!);
     result.fold(
       (failure) => emit(LoginFailureState(errorMessage: failure.errorMessage)),
       (result) => emit(LoginSuccessState()),
     );
   }
 }
+// states
+// method
+// provide
+// integrate

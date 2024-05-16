@@ -11,19 +11,16 @@ class BookingService {
       data: {"numberOfTickets": numOfTickets, "date": date},
     );
     print(response.data);
-    return response.data;
+    //return response.data;
   }
 
-  Future<List<TicketModel>> fetchBookings() async {
+  Future<List<TicketModel>> fetchTickets() async {
     try {
-      final response = await _dio.get('$baseUrl/bookings');
-      final List<dynamic> json = response.data;
-      List<TicketModel> bookings = List.generate(
-        json.length,
-        (index) => TicketModel.fromJson(json[index]),
-      );
-      print(bookings);
-      return bookings;
+      final Response response = await _dio.get('$baseUrl/bookings');
+      final List<dynamic> data = response.data;
+      List<TicketModel> tickets = List.generate(data.length, (index) => TicketModel.fromJson(data[index]));
+      print(tickets);
+      return tickets;
     } on DioException catch (error) {
       throw Exception('Failed to fetch bookings: ${error.message}');
     }

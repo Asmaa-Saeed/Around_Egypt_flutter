@@ -36,7 +36,7 @@ class DetailsPageBody extends StatelessWidget {
                   const SizedBox(height: 20.0), // Consistent spacing
                   ElevatedButton(
                     onPressed: () {
-                      BookingService().fetchBookings();
+                      BookingService().fetchTickets();
                       showDialog(
                         context: context,
                         builder: ((context) => const AddDialog()),

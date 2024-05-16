@@ -8,10 +8,10 @@ import 'auth_repo.dart';
 class AuthRepoImp implements AuthRepo {
   @override
   Future<Either<Failure, Map<String, dynamic>>> login(
-      {required String email, required String password}) async {
+      {required Map<String, dynamic>? userData}) async {
     try {
-      await AuthService().login(email, password);
-      return right({'email': email, 'password': password});
+      Map<String, dynamic> result = await AuthService().login(userData);
+      return right(result);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
     }

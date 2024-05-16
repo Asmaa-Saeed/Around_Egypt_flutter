@@ -73,8 +73,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             hintText: widget.hintText,
             hintStyle: const TextStyle(
               color: Color(0xFF919AAB),
-              fontSize: 12,
+              fontSize: 11,
               fontWeight: FontWeight.w400,
+              fontFamily: 'Jet'
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),

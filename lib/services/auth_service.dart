@@ -2,13 +2,15 @@ import 'package:dio/dio.dart';
 
 class AuthService {
   final Dio _dio = Dio();
-  String baseUrl = 'http://192.168.1.5:8003/api/v1/auth';
-  login(String email, String password) async {
+  // post , get , put , delete
+  String baseUrl = 'http://192.168.1.5:8003/api/v1/auth'; // /login/signup
+  login(Map<String, dynamic>? userData) async {
     Response response = await _dio.post(
       '$baseUrl/login',
-      data: {'email': email, 'password': password},
+      data:userData,
     );
-    print(response.data);
+    print(response.statusCode);
+    print(response.statusMessage);
     return response.data;
   }
 
@@ -18,6 +20,6 @@ class AuthService {
       data: userData,
     );
     print(response.data);
-    return response.data;
+    //return response.data;
   }
 }

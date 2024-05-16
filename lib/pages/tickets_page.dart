@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../widgets/booked_page_body.dart';
 
-class BookedPage extends StatelessWidget {
-  static String id = 'BookedPage';
+class TicketsPage extends StatelessWidget {
+  static String id = 'TicketsPage';
 
-  const BookedPage({super.key});
+  const TicketsPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

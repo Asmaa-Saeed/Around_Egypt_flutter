@@ -8,7 +8,7 @@ import 'package:around_egypt/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'pages/booked_page.dart';
+import 'pages/tickets_page.dart';
 
 void main() async {
   runApp(const AroundEgypt());
@@ -33,9 +33,9 @@ class AroundEgypt extends StatelessWidget {
               child: const RegisterPage(),
             ),
         HomePage.id: (context) => const HomePage(),
-        BookedPage.id: (context) => const BookedPage(),
+        TicketsPage.id: (context) => const TicketsPage(),
         SettingPage.id: (context) => const SettingPage(),
-        BookedPage.id: (context) => const BookedPage(),
+        TicketsPage.id: (context) => const TicketsPage(),
       },
       initialRoute: SplashPage.id,
     );

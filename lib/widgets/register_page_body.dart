@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubits/register_cubit/register_state.dart';
 import 'custom_column.dart';
+
 // global variables for the register page
 String? emailAddress;
 String? name;
@@ -135,7 +136,8 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                         const Text(
                           'already have an account? ',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 12,
+                            fontFamily: 'Jet',
                             color: Color.fromARGB(255, 46, 71, 144),
                           ),
                         ),
@@ -145,7 +147,8 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                           },
                           child: const Text(' LOGIN',
                               style: TextStyle(
-                                fontSize: 14,
+                                fontFamily: 'Jet',
+                                fontSize: 12,
                                 color: Colors.blue,
                                 fontWeight: FontWeight.bold,
                               )),

@@ -11,3 +11,4 @@ class LoginFailureState extends LoginState {
 
   LoginFailureState({required this.errorMessage});
 }
+// BLOC Business Logic component --> cubit state management handling states of ui 

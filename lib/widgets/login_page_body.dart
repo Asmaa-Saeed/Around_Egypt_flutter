@@ -43,7 +43,7 @@ class _LoginPageBodyState extends State<LoginPageBody> {
       builder: (context, state) {
         return SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22,vertical: 90),
+            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 90),
             child: Column(
               children: [
                 Lottie.asset(
@@ -90,19 +90,19 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: BlocBuilder<LoginCubit, LoginState>(
-                    builder: (context, state) {
-                      return CustomButton(
+                  child: CustomButton(
                         isLoading: state is LoginLoadingState ? true : false,
                         text: 'LOGIN',
                         onTap: () {
                           log(emailAddress!);
-                          BlocProvider.of<LoginCubit>(context)
-                              .login(email: emailAddress!, password: password!);
+                          BlocProvider.of<LoginCubit>(context).login(
+                            userData: {
+                              "email": emailAddress!,
+                              "password": password!
+                            },
+                          );
                         },
-                      );
-                    },
-                  ),
+                      ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -113,7 +113,8 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                     const Text(
                       'don\'t have an account ?',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontFamily: 'Jet',
+                        fontSize: 12,
                         color: Color(0xFF2E4790),
                       ),
                     ),
@@ -126,13 +127,14 @@ class _LoginPageBodyState extends State<LoginPageBody> {
                       },
                       child: const Text('REGISTER',
                           style: TextStyle(
-                            fontSize: 14,
+                            fontFamily: 'Jet',
+                            fontSize: 12,
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,
                           )),
                     ),
                   ],
-                ),            
+                ),
                 // MaterialButton(
                 //     onPressed: () async {
                 //     },
