@@ -22,7 +22,7 @@ class BookingService {
       print(tickets);
       return tickets;
     } on DioException catch (error) {
-      throw Exception('Failed to fetch bookings: ${error.message}');
+      throw Exception('Failed to fetch Tickets: ${error.message}');
     }
   }
 }
